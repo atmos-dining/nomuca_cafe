@@ -1172,10 +1172,11 @@ body:not(.is-home) .section {
 /* --------------- course page --------------- */
 
 .course-hero {
+  margin: 28px auto 0;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  margin-bottom: 48px;
   box-shadow: var(--shadow-lg);
+  max-width: 900px;
 }
 .course-hero img {
   width: 100%;
