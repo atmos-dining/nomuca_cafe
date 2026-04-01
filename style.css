@@ -229,23 +229,24 @@ body:not(.is-home) .section {
   width: 50px;
   height: 50px;
   border-radius: 999px;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: var(--primary);
   color: #fff;
   border: 1px solid var(--primary);
   box-shadow: 0 4px 16px rgba(107, 66, 38, 0.35);
-  font-size: 32px;
+  font-size: 20px;
   line-height: 1;
   z-index: 900;
   opacity: 0;
-  transform: translateY(12px) scaleX(1.5);
+  transform: translateY(12px);
   pointer-events: none;
   transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
 }
 .page-top.is-show {
   opacity: 1;
-  transform: translateY(0) scaleX(1.5);
+  transform: translateY(0);
   pointer-events: auto;
 }
 .page-top:hover {
@@ -1357,11 +1358,11 @@ body:not(.is-home) .section {
 .reserve-tel-label { font-size: 12px; color: var(--text-sub); margin: 0 0 4px; }
 .reserve-tel-number {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 30px;
+  font-size: 42px;
   font-weight: 600;
   color: var(--primary);
   margin: 0 0 8px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
 }
 .reserve-tel-number a { color: inherit; }
 .reserve-time { font-size: 13px; color: var(--text-sub); margin: 0 0 20px; }
