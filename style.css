@@ -226,8 +226,8 @@ body:not(.is-home) .section {
   position: fixed;
   right: 20px;
   bottom: calc(20px + env(safe-area-inset-bottom, 0px));
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: 999px;
   display: flex;
   align-items: center;
@@ -236,13 +236,22 @@ body:not(.is-home) .section {
   color: #fff;
   border: 1px solid var(--primary);
   box-shadow: 0 4px 16px rgba(107, 66, 38, 0.35);
-  font-size: 20px;
-  line-height: 1;
+  font-size: 0; /* テキスト非表示、CSS矢印で描画 */
   z-index: 900;
   opacity: 0;
   transform: translateY(12px);
   pointer-events: none;
   transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+}
+/* CSS chevron 矢印 */
+.page-top::before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(-45deg) translate(1px, 2px);
 }
 .page-top.is-show {
   opacity: 1;
@@ -1355,14 +1364,15 @@ body:not(.is-home) .section {
   margin-bottom: 16px;
   color: var(--text);
 }
-.reserve-tel-label { font-size: 12px; color: var(--text-sub); margin: 0 0 4px; }
+.reserve-tel-label { font-size: 12px; color: var(--text-sub); margin: 0 0 2px !important; }
 .reserve-tel-number {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 42px;
+  font-size: 48px;
   font-weight: 600;
   color: var(--primary);
-  margin: 0 0 8px;
+  margin: 0 0 8px !important;
   letter-spacing: 0.06em;
+  line-height: 1.1;
 }
 .reserve-tel-number a { color: inherit; }
 .reserve-time { font-size: 13px; color: var(--text-sub); margin: 0 0 20px; }
