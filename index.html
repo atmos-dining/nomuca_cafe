@@ -353,14 +353,28 @@
 
       <div class="course-home-grid stagger">
         <div class="course-home-card reveal-up">
-          <h3>ランチコース</h3>
-          <div class="course-home-price">¥2,200〜<span>（税込）</span></div>
-          <p>前菜・パスタ・メイン・デザート・ドリンクを含む本格コース。ランチタイムのゆったりとした時間にご利用ください。</p>
+          <h3>ノムカコース</h3>
+          <div class="course-home-price">¥4,000<span>（税込）</span></div>
+          <p class="course-home-badge">人気No.1 ／ 全9品</p>
+          <p>前菜盛り合わせ・カルパッチョ・イカフリット・あさり白ワイン蒸し・牛ランプグリル・パスタ・クラフトアイス。飲み放題オプション追加可。</p>
         </div>
         <div class="course-home-card reveal-up">
-          <h3>ディナーコース</h3>
-          <div class="course-home-price">¥4,400〜<span>（税込）</span></div>
-          <p>記念日・接待・ご宴会に対応した贅沢なディナーコース。ワインのペアリングプランもご用意しています。</p>
+          <h3>ノムカスタンダードコース</h3>
+          <div class="course-home-price">¥3,500<span>（税込）</span></div>
+          <p class="course-home-badge">全8品</p>
+          <p>前菜盛り合わせ・デリ風サラダ・アヒージョ・糸島豚グリル・濃厚カルボナーラ・クラフトアイス。飲み放題オプション追加可。</p>
+        </div>
+        <div class="course-home-card reveal-up">
+          <h3>ノムカ贅沢コース</h3>
+          <div class="course-home-price">¥5,000<span>（税込）</span></div>
+          <p class="course-home-badge">特別な日に ／ 全10品</p>
+          <p>シャンパントースト・カルパッチョ・前菜6種・ブイヤベース・カムイ牛タリアータ・パスタ・デザートプレート。</p>
+        </div>
+        <div class="course-home-card reveal-up">
+          <h3>ノムカお食事コース</h3>
+          <div class="course-home-price">¥2,500<span>（税込）</span></div>
+          <p class="course-home-badge">日〜木限定 ／ 全4品</p>
+          <p>前菜盛り合わせ・サラダ・グリル・パスタをリーズナブルに。※飲み放題オプションはございません。</p>
         </div>
       </div>
 
@@ -415,25 +429,28 @@
   if (slides.length < 2) return;
   let current = 0;
 
-  // 初期: 1枚目を最前面に
+  // 初期: 1枚目を z=1 に
   slides[0].style.zIndex = 1;
 
   setInterval(function () {
     const next = (current + 1) % slides.length;
 
-    // 次スライドを前面に持ってくる → opacity:0 のまま重ねる
+    // 次スライドを最前面(z=2)に持ってきてフェードイン
     slides[next].style.zIndex = 2;
-    slides[next].classList.add('is-active');       // フェードイン開始
+    slides[next].classList.add('is-active');
 
-    // 前スライドは背面でフェードアウト後に zIndex を戻す
     const prev = current;
     setTimeout(function () {
-      slides[prev].classList.remove('is-active');  // フェードアウト
+      // 前スライドをフェードアウトして背面へ
+      slides[prev].classList.remove('is-active');
       slides[prev].style.zIndex = 0;
-    }, 1800);                                       // transition 1.8s 後
+      // 現スライドを z=1 に下げる → 次の遷移で必ず z=2 が上に来る
+      // （3→1 のループ時も同様に正しく動作）
+      slides[next].style.zIndex = 1;
+    }, 1800);                                // transition 1.8s 後
 
     current = next;
-  }, 7000);
+  }, 5000);                                 // 5秒ごとに切り替え
 })();
 
 /* トップ：ブログ最新3件を自動表示 */
