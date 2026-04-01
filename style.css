@@ -1121,7 +1121,7 @@ body:not(.is-home) .section {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-bottom: 32px;
-  align-items: start;
+  align-items: stretch; /* 3枚の高さを揃える */
 }
 .menu-item-name {
   font-size: 15px;
