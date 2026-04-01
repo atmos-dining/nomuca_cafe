@@ -206,6 +206,19 @@ body:not(.is-home) .section {
   transform: translateY(-1px);
 }
 
+/* Hero内の電話ボタン：写真の上でも必ず見えるよう白系で上書き */
+.hero .btn-secondary {
+  background-color: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(4px);
+}
+.hero .btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.30);
+  border-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-1px);
+}
+
 
 /* --------------- page top button --------------- */
 
