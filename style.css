@@ -1098,6 +1098,7 @@ body:not(.is-home) .section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0;
+  column-gap: 40px;
 }
 
 .menu-item {
@@ -1106,7 +1107,13 @@ body:not(.is-home) .section {
   align-items: baseline;
   padding: 16px 0;
   border-bottom: 1px solid var(--border);
-  gap: 16px;
+  gap: 12px;
+}
+
+/* 右列アイテムに左ボーダーで視覚的セパレーター */
+.menu-list > .menu-item:nth-child(even) {
+  padding-left: 20px;
+  border-left: 1px solid var(--border);
 }
 .menu-item-name {
   font-size: 15px;
