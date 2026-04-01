@@ -1110,10 +1110,18 @@ body:not(.is-home) .section {
   gap: 12px;
 }
 
-/* 右列アイテムに左ボーダーで視覚的セパレーター */
+/* 右列アイテムに左パディングで間隔確保（縦線なし） */
 .menu-list > .menu-item:nth-child(even) {
   padding-left: 20px;
-  border-left: 1px solid var(--border);
+}
+
+/* ランチカード 3列グリッド（PC） */
+.lunch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 32px;
+  align-items: start;
 }
 .menu-item-name {
   font-size: 15px;
@@ -1571,6 +1579,7 @@ body:not(.is-home) .section {
   .reserve-grid { grid-template-columns: 1fr; }
   .access-grid { grid-template-columns: 1fr; }
   .menu-list { grid-template-columns: 1fr; }
+  .lunch-grid { grid-template-columns: 1fr; }
   .drinkcat-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
