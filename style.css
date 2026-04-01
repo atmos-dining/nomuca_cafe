@@ -842,7 +842,7 @@ body:not(.is-home) .section {
 .space-image-wrap {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  aspect-ratio: 3/4;
+  aspect-ratio: 4/5;
   box-shadow: var(--shadow-lg);
 }
 .space-main-image {
