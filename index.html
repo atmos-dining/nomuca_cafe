@@ -414,11 +414,26 @@
   const slides = document.querySelectorAll('.hero-slide');
   if (slides.length < 2) return;
   let current = 0;
+
+  // 初期: 1枚目を最前面に
+  slides[0].style.zIndex = 1;
+
   setInterval(function () {
-    slides[current].classList.remove('is-active');
-    current = (current + 1) % slides.length;
-    slides[current].classList.add('is-active');
-  }, 5500);
+    const next = (current + 1) % slides.length;
+
+    // 次スライドを前面に持ってくる → opacity:0 のまま重ねる
+    slides[next].style.zIndex = 2;
+    slides[next].classList.add('is-active');       // フェードイン開始
+
+    // 前スライドは背面でフェードアウト後に zIndex を戻す
+    const prev = current;
+    setTimeout(function () {
+      slides[prev].classList.remove('is-active');  // フェードアウト
+      slides[prev].style.zIndex = 0;
+    }, 1800);                                       // transition 1.8s 後
+
+    current = next;
+  }, 7000);
 })();
 
 /* トップ：ブログ最新3件を自動表示 */
