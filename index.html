@@ -477,7 +477,13 @@
       if (top3.length === 0) throw new Error();
       grid.innerHTML = '';
       top3.forEach(p => {
-        const img = p.image ? String(p.image).replace(/^\.\//, './blog/') : '';
+        // posts.json のパスは blog/ 基準 (../images/xxx.jpg)
+        // index.html はルート基準なので ../images/ → ./images/ に変換
+        const img = p.image
+          ? String(p.image)
+              .replace(/^\.\.\//, './')      // ../images/ → ./images/
+              .replace(/^\.\/(?!images)/, './blog/')  // ./xxx → ./blog/xxx (images以外)
+          : '';
         const bg  = img ? `background-image:url('${esc(img)}');` : '';
         const el  = document.createElement('article');
         el.className = 'blog-card';
