@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: atmos-dining/nomuca-site
+  repo: atmos-dining/nomuca_cafe
   branch: main
   base_url: https://sveltia-cms-auth.atmos-nextgen-team.workers.dev
 
