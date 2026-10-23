@@ -157,6 +157,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://nomuka-cafe.com/">
+<script src="vendor/blog-security.js"></script>
 </head>
 
 <body class="is-home" data-page="home">
@@ -484,7 +485,7 @@
               .replace(/^\.\.\//, './')      // ../images/ → ./images/
               .replace(/^\.\/(?!images)/, './blog/')  // ./xxx → ./blog/xxx (images以外)
           : '';
-        const bg  = img ? `background-image:url('${esc(img)}');` : '';
+        const bg  = img ? `background-image:url('${esc(BlogSecurity.imageURL(img))}');` : '';
         const el  = document.createElement('article');
         el.className = 'blog-card';
         el.innerHTML = `
